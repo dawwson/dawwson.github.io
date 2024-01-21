@@ -5,10 +5,18 @@ const toDoList = document.querySelector("#todo-list");
 const TODOS_KEY = "todos";
 let toDos = [];
 
-function handleDeleteToDo(event) {
-  // 버튼의 부모 요소인 li를 삭제
+function handleDeleteClick(event) {
+  // 버튼의 부모 요소인 li 조회
   const li = event.target.parentElement;
+
+  // li를 화면에서 삭제
   li.remove();
+
+  // 삭제할 투두를 제외하고 리스트 업데이트
+  toDos = toDos.filter((toDo) => toDo.id !== Number(li.id));
+
+  // 로컬 스토리지 업데이트
+  saveToDos(toDos);
 }
 
 function paintToDo(toDo) {
@@ -16,10 +24,11 @@ function paintToDo(toDo) {
   const span = document.createElement("span");
   const button = document.createElement("button");
 
-  span.innerText = toDo;
+  span.innerText = toDo.content;
   button.innerText = "❌";
-  button.addEventListener("click", handleDeleteToDo);
+  button.addEventListener("click", handleDeleteClick);
 
+  li.id = String(toDo.id);
   li.appendChild(span);
   li.appendChild(button);
 
@@ -27,7 +36,7 @@ function paintToDo(toDo) {
 }
 
 function saveToDos(toDos) {
-  localStorage.setItem("todos", JSON.stringify(toDos));
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function handleToDoSubmit(event) {
@@ -35,7 +44,10 @@ function handleToDoSubmit(event) {
   event.preventDefault();
 
   // 입력값 가져와서 로컬 스토리지에 저장
-  const newToDo = toDoInput.value;
+  const newToDo = {
+    id: Date.now(),
+    content: toDoInput.value,
+  };
   toDos.push(newToDo);
   saveToDos(toDos);
 
