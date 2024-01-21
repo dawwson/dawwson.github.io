@@ -14,12 +14,23 @@ function handleToDoSubmit(event) {
   toDoInput.value = "";
 }
 
+function handleDeleteToDo(event) {
+  // 버튼의 부모 요소인 li를 삭제
+  const li = event.target.parentElement;
+  li.remove();
+}
+
 function paintToDo(toDo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
+  const button = document.createElement("button");
 
   span.innerText = toDo;
+  button.innerText = "❌";
+  button.addEventListener("click", handleDeleteToDo);
+
   li.appendChild(span);
+  li.appendChild(button);
 
   toDoList.appendChild(li);
 }
