@@ -21,7 +21,20 @@ function onLoginSubmit(event) {
 }
 
 function paintGreetings(username) {
-  greeting.innerText = `Hello ${username}`;
+  // 시간대에 따라 인사말 다르게 지정
+  const now = new Date();
+  const hours = now.getHours();
+
+  if (hours >= 0 && hours < 6) {
+    greeting.innerText = `Good night, ${username} 💕`;
+  } else if (hours >= 6 && hours < 12) {
+    greeting.innerText = `Good morning, ${username} ☀️`;
+  } else if (hours >= 12 && hours < 18) {
+    greeting.innerText = `Good afternoon, ${username} ☕️`;
+  } else {
+    greeting.innerText = `Good evening, ${username} ✨`;
+  }
+
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
