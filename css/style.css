@@ -2,21 +2,41 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  color: #ffffff;
 }
 
 body * {
   font-family: "body-font", sans-serif;
+  color: #ffffff;
+}
+
+#container {
+  position: relative;
+  width: 100vw; /* 100% viewport width */
+  height: 100vh; /* 100% viewport height */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #background {
-  width: 100vw; /* 100% viewport width */
-  height: 100vh; /* 100% viewport height */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1px) brightness(60%);
+}
+
+#content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-size: cover;
+  animation: fade-in 2s;
 }
 
 #clock {
@@ -57,6 +77,15 @@ body * {
   display: none;
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @font-face {
   font-family: "body-font";
   src: url("../font/Geranium.otf");
@@ -65,4 +94,12 @@ body * {
 @font-face {
   font-family: "clock-font";
   src: url("../font/Royalacid_o.ttf");
+}
+
+@font-face {
+  font-family: "PyeongChangPeace-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
