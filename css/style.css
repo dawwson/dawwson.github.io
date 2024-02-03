@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  color: #ffffff;
 }
 
 body * {
@@ -22,7 +23,7 @@ body * {
   margin: 20px;
   font-family: "clock-font";
   font-size: 120px;
-  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 #login-form input {
@@ -36,7 +37,6 @@ body * {
   text-align: center;
   padding: 10px;
   background: transparent;
-  color: #000000;
 }
 
 #login-form input:focus {
@@ -45,12 +45,12 @@ body * {
 }
 
 #login-form input::placeholder {
-  color: #ffffff;
+  color: #dddddd;
 }
 
 #greeting {
   font-size: 50px;
-  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
 }
 
 .hidden {
