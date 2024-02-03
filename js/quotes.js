@@ -1,56 +1,59 @@
 const quotes = [
   {
     quote:
-      "I figure life's a gift and I don't intend on wasting it. You never know what hand you're going to get dealt next. You learn to take life as it comes at you.",
-    author: "Titanic - Jack Dawson",
-  },
-  {
-    quote: "Make it count. Meet me at the clock.",
-    author: "Titanic - Jack Dawson",
+      "그때만 해도 나는 인간의 천성이 얼마나 모순투성이인지를 몰랐다.\n성실한 사람에게도 얼마나 많은 가식이 있으며, 고결한 사람에게도 얼마나 많은 비열함이 있고, 불량한 사람에게도 얼마나 많은 선량함이 있는지를 몰랐다.",
+    page: "p.56",
   },
   {
     quote:
-      "Murphy's Law doesn't mean that something bad will happen. It means that whatever can happen will happen.",
-    author: "Interstellar - Joseph Cooper",
-  },
-  {
-    quote: "Love is the one thing that transcends time and space.",
-    author: "Interstellar - Amelia Brand",
-  },
-  {
-    quote: "누군가 인정해주지 않아도 내 세상은 절대 무너지지 않는다.",
-    author: "꿈은 없고요, 그냥 성공하고 싶습니다 - 홍민지",
+      "⌜나는 그림을 그려야 한다지 않소. 그리지 않고서는 못 배기겠단 말이요.\n물에 빠진 사람에게 헤엄을 잘 치고 못 치고가 문제겠소? 우선 헤어나오는 게 중요하지.\n그렇지 않으면 빠져 죽어요⌟",
+    page: "p.68",
   },
   {
     quote:
-      "성실한 인간에게도 얼마나 많은 가식이 있으며, 고결한 사람에게도 얼마나 많은 비열함이 있고, 불량한 사람에게도 얼마나 많은 선량함이 있는지를 몰랐다.",
-    author: "달과 6펜스 - 서머싯 몸",
+      "이제는 한 인간의 마음 안에도 좀스러움과 위엄스러움, 악의와 선의, 증오와 사랑이 나란히 자리잡고 있음을 너무도 잘 안다.",
+    page: "p.85",
+  },
+  {
+    quote: "⌜난 과거를 생각지 않소. 중요한 것은 영원한 현재뿐이지⌟",
+    page: "p.112",
   },
   {
     quote:
-      "It's not up to you to save me, Jack.\nYou're right. Only you can do that.",
-    author: "Titanic - Rose & Jack",
-  },
-  {
-    quote: "모두에게 유익한 사람이란 존재하지 않아.",
-    author: "진격의 거인 - 아르민",
+      "사랑은 사람을 실제보다 약간 더 훌륭한 존재로, 동시에 약간 열등한 존재로 만들어준다.",
+    page: "p.159",
   },
   {
     quote:
-      "다시 눈을 떴을 때 그곳엔 자유가 펼쳐져 있었다. 만약 운명이란 것이 존재한다면 그 변덕스러움에 웃을 수밖에 없었다. 하지만 난 그때 맹세했다. 이제 거짓말은 끝내겠다고. 다시는 자신에게 거짓말하지 않겠다고. 자신에게 솔직하게 살겠다고.",
-    author: "진격의 거인 - 유미르",
+      "정말 아브라함이 인생을 망쳐놓고 말았을까?\n자기가 바라는 일을 한다는 것, 자기가 좋아하는 조건에서 마음 편히 산다는 것,\n그것이 인생을 망치는 일일까?",
+    page: "p.259",
   },
   {
     quote:
-      "그 녀석이 더 간절했고, 난 더 용기를 냈어야 했다. 나빴던 건 신호등이 아니라, 타이밍이 아니라, 내 수많은 망설임들이었다.",
-    author: "응답하라 1988 - 김정환",
+      "세상은 이상한 짓을 하는 사람들로 가득 찼다는 것,\n사람은 자기 바라는 대로 되는 게 아니라 생겨먹은 대로 된다는 것을 그 사람들은 알고 있는 것 같았다. ",
+    page: "p.275",
+  },
+  {
+    quote:
+      "낯선 곳에 있다는 느낌, 바로 그러한 느낌 때문에\n그들은 사랑을 느낄 수 있는 뭔가 영원한 것을 찾아 멀리 사방을 헤매는 것이 아닐까.",
+    page: "p.253",
+  },
+  {
+    quote:
+      "⌜죽음에 대해 생각해 본 적이 있나요?⌟\n⌜내가 왜? 그게 왜 중요하단 말인가?⌟",
+    page: "p.206",
+  },
+  {
+    quote:
+      "삶의 전환은 여러 모양을 취할 수 있고, 여러 방식으로 이루어질 수 있다.\n어떤 이들에게는 그것이 성난 격류로 돌을 산산조각내는 대격변처럼 올 수 있을 것이다.\n하지만 또 어떤 이들에게는 그것이 마치 방울방울 끊임없이 떨어지는 물방울에 돌이 닳듯이 천천히 올 수도 있다. ",
+    page: "p.75",
   },
 ];
 
 const quote = document.querySelector("#quote span:first-child");
-const author = document.querySelector("#quote span:last-child");
+const page = document.querySelector("#quote span:last-child");
 
 const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 quote.innerText = randomQuote.quote;
-author.innerText = randomQuote.author;
+page.innerText = randomQuote.page;
