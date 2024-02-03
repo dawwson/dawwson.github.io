@@ -11,22 +11,24 @@ async function onGeoOk(position) {
   const response = await fetch(url);
   const data = await response.json();
 
-  const weatherIcon = document.querySelector("#weather img");
-  const [temperature, city] = document.querySelectorAll("#weather span");
+  const icon = document.querySelector("#weather img");
+  const description = document.querySelector("#weather span");
 
   if (response.ok) {
-    weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    temperature.innerText = `${data.main.temp} ℃`;
-    city.innerText = data.name;
+    icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+    description.innerHTML = `${data.main.temp} ℃&nbsp;&nbsp;&nbsp;&nbsp;${data.name}`;
   } else {
-    weatherIcon.src = UNKNOWN_LOCATION_ICON_URL;
-    temperature.classList.add(HIDDEN_CLASSNAME);
-    city.classList.add(HIDDEN_CLASSNAME);
+    icon.src = UNKNOWN_LOCATION_ICON_URL;
+    description.innerText = "Please tell me where you are!";
   }
 }
 
 function onGeoError() {
-  alert("Can't find you. No weather for you.");
+  const icon = document.querySelector("#weather img");
+  const description = document.querySelector("#weather span");
+
+  icon.src = UNKNOWN_LOCATION_ICON_URL;
+  description.innerText = "Please tell me where you are!";
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
