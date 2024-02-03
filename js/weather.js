@@ -1,5 +1,6 @@
 // TODO: API Key 관리 방법 고민해보기
 const API_KEY = "";
+const UNKNOWN_LOCATION_ICON_URL = "/img/unknown-location.png";
 
 async function onGeoOk(position) {
   const lat = position.coords.latitude; // 위도
@@ -10,11 +11,18 @@ async function onGeoOk(position) {
   const response = await fetch(url);
   const data = await response.json();
 
-  const weather = document.querySelector("#weather span:first-child");
-  const city = document.querySelector("#weather span:last-child");
+  const weatherIcon = document.querySelector("#weather img");
+  const [temperature, city] = document.querySelectorAll("#weather span");
 
-  weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
-  city.innerText = data.name;
+  if (response.ok) {
+    weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+    temperature.innerText = `${data.main.temp} ℃`;
+    city.innerText = data.name;
+  } else {
+    weatherIcon.src = UNKNOWN_LOCATION_ICON_URL;
+    temperature.classList.add(HIDDEN_CLASSNAME);
+    city.classList.add(HIDDEN_CLASSNAME);
+  }
 }
 
 function onGeoError() {
