@@ -15,8 +15,12 @@ async function onGeoOk(position) {
   const description = document.querySelector("#weather span");
 
   if (response.ok) {
+    const temperature = Math.round(data.main.temp * 10) / 10; // 소숫점 첫째자리에서 반올림
+    const weather = data.weather[0].main;
+    const city = data.name;
+
     icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    description.innerHTML = `${data.main.temp} ℃&nbsp;&nbsp;&nbsp;&nbsp;${data.name}`;
+    description.innerHTML = `${weather}&nbsp;&nbsp;${temperature} ℃ &nbsp;&nbsp;${city}`;
   } else {
     icon.src = UNKNOWN_LOCATION_ICON_URL;
     description.innerText = "Please tell me where you are!";
