@@ -1,9 +1,26 @@
+const toggleButton = document.querySelector("#todo-toggle-button");
+const todoWrapper = document.querySelector("#todo-wrapper");
 const toDoForm = document.querySelector("#todo-wrapper form");
 const toDoInput = document.querySelector("#todo-wrapper form input");
-const toDoList = document.querySelector("#todo-list");
+const toDoList = document.querySelector("#todo-wrapper ul");
 
 const TODOS_KEY = "todos";
 let toDos = [];
+let isListOpen = false;
+
+function handleClickToggleButton() {
+  if (isListOpen) {
+    // 열려있는 상태이면 리스트를 닫는다.
+    todoWrapper.classList.add(HIDDEN_CLASSNAME);
+    toggleButton.innerHTML = "Todo List&nbsp;&nbsp;🔽";
+    isListOpen = false;
+  } else {
+    // 닫혀있는 상태이면 리스트를 연다.
+    todoWrapper.classList.remove(HIDDEN_CLASSNAME);
+    toggleButton.innerHTML = "Todo List&nbsp;&nbsp;🔼";
+    isListOpen = true;
+  }
+}
 
 function handleToDoSubmit(event) {
   // 브라우저 기본동작(페이지 새로고침) 방지
@@ -22,6 +39,9 @@ function handleToDoSubmit(event) {
 
   // input 비우기
   toDoInput.value = "";
+
+  // 스크롤 맨 밑으로 내리기
+  todoWrapper.scrollTop = todoWrapper.scrollHeight;
 }
 
 function saveToDos(toDos) {
@@ -58,6 +78,7 @@ function handleDeleteClick(event) {
   saveToDos(toDos);
 }
 
+toggleButton.addEventListener("click", handleClickToggleButton);
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
 // 로컬 스토리지에 저장된 리스트 조회

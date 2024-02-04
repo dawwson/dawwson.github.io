@@ -55,7 +55,7 @@ body * {
   margin-right: 0.3em;
 }
 
-#todo-toggle {
+#todo-toggle-button {
   position: absolute;
   top: 30px;
   left: 40px;
@@ -65,8 +65,49 @@ body * {
   transition: transform 0.3s ease;
 }
 
-#todo-toggle:hover {
-  animation: pulse 1s infinite;
+#todo-toggle-button:hover {
+  transform: scale(1.2);
+}
+
+#todo-wrapper {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  width: 20%;
+  min-height: 300px;
+  max-height: 500px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: fade-in 0.5s;
+  overflow: auto;
+}
+
+#todo-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#todo-wrapper input {
+  font-size: 22px;
+  width: 90%;
+  margin: 20px 0 10px 0;
+  border: 0;
+  border-bottom: 2px solid #ffffff;
+  background-color: transparent;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#todo-wrapper input:focus {
+  outline: 0;
+  color: #ffffff;
+}
+
+#todo-wrapper input::placeholder {
+  text-align: center;
+  color: #dddddd;
 }
 
 #clock {
@@ -123,19 +164,6 @@ body * {
   }
   to {
     opacity: 1;
-  }
-}
-
-/* 애니메이션 키프레임 정의 */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 
