@@ -5,18 +5,27 @@ const toDoList = document.querySelector("#todo-list");
 const TODOS_KEY = "todos";
 let toDos = [];
 
-function handleDeleteClick(event) {
-  // 버튼의 부모 요소인 li 조회
-  const li = event.target.parentElement;
+function handleToDoSubmit(event) {
+  // 브라우저 기본동작(페이지 새로고침) 방지
+  event.preventDefault();
 
-  // li를 화면에서 삭제
-  li.remove();
-
-  // 삭제할 투두를 제외하고 리스트 업데이트
-  toDos = toDos.filter((toDo) => toDo.id !== Number(li.id));
-
-  // 로컬 스토리지 업데이트
+  // 입력값 가져와서 로컬 스토리지에 저장
+  const newToDo = {
+    id: Date.now(),
+    content: toDoInput.value,
+  };
+  toDos.push(newToDo);
   saveToDos(toDos);
+
+  // 리스트에 추가하기
+  paintToDo(newToDo);
+
+  // input 비우기
+  toDoInput.value = "";
+}
+
+function saveToDos(toDos) {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function paintToDo(toDo) {
@@ -35,27 +44,18 @@ function paintToDo(toDo) {
   toDoList.appendChild(li);
 }
 
-function saveToDos(toDos) {
-  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
-}
+function handleDeleteClick(event) {
+  // 버튼의 부모 요소인 li 조회
+  const li = event.target.parentElement;
 
-function handleToDoSubmit(event) {
-  // 브라우저 기본동작(페이지 새로고침) 방지
-  event.preventDefault();
+  // li를 화면에서 삭제
+  li.remove();
 
-  // 입력값 가져와서 로컬 스토리지에 저장
-  const newToDo = {
-    id: Date.now(),
-    content: toDoInput.value,
-  };
-  toDos.push(newToDo);
+  // 삭제할 투두를 제외하고 리스트 업데이트
+  toDos = toDos.filter((toDo) => toDo.id !== Number(li.id));
+
+  // 로컬 스토리지 업데이트
   saveToDos(toDos);
-
-  // 리스트에 추가하기
-  paintToDo(newToDo);
-
-  // input 비우기
-  toDoInput.value = "";
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
