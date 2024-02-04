@@ -76,6 +76,7 @@ body * {
   width: 20%;
   min-height: 300px;
   max-height: 500px;
+  padding: 20px;
   border-radius: 20px;
   background-color: rgb(255, 255, 255, 0.4);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -90,9 +91,9 @@ body * {
 }
 
 #todo-wrapper input {
-  font-size: 22px;
+  font-size: 28px;
   width: 90%;
-  margin: 20px 0 10px 0;
+  margin: 20px 0 20px 0;
   border: 0;
   border-bottom: 2px solid #ffffff;
   background-color: transparent;
@@ -108,6 +109,35 @@ body * {
 #todo-wrapper input::placeholder {
   text-align: center;
   color: #dddddd;
+}
+
+#todo-wrapper ul {
+  list-style-type: none;
+  padding: 0 0 0 10px;
+  margin: 0;
+  font-size: 28px;
+}
+
+#todo-wrapper li {
+  margin: 8px 0 8px 0;
+  display: flex;
+}
+
+#todo-wrapper li button {
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+  font-size: 20px;
+  box-shadow: none;
+  transition: transform 0.1s ease;
+}
+
+#todo-wrapper li button:hover {
+  transform: scale(1.2);
+}
+
+#todo-wrapper li span {
+  margin-left: 10px;
 }
 
 #clock {
@@ -156,6 +186,10 @@ body * {
 
 .hidden {
   display: none;
+}
+
+.strike-through {
+  text-decoration: line-through;
 }
 
 @keyframes fade-in {

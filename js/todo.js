@@ -51,17 +51,30 @@ function saveToDos(toDos) {
 function paintToDo(toDo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const button = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  const completeButton = document.createElement("button");
 
   span.innerText = toDo.content;
-  button.innerText = "❌";
-  button.addEventListener("click", handleDeleteClick);
+  completeButton.innerText = "✅";
+  completeButton.addEventListener("click", handleClickComplete);
+  deleteButton.innerText = "❌";
+  deleteButton.addEventListener("click", handleDeleteClick);
 
   li.id = String(toDo.id);
+  li.appendChild(completeButton);
+  li.appendChild(deleteButton);
   li.appendChild(span);
-  li.appendChild(button);
 
   toDoList.appendChild(li);
+}
+
+function handleClickComplete(event) {
+  // 버튼의 부모 요소인 li 조회
+  const li = event.target.parentElement;
+  const span = li.lastChild;
+
+  // if (span.classList.)
+  span.classList.toggle("strike-through");
 }
 
 function handleDeleteClick(event) {
