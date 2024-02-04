@@ -1,5 +1,5 @@
 // TODO: API Key 관리 방법 고민해보기
-const API_KEY = "";
+const API_KEY = "2e637fbb488d9b7218eff9c19a3c59df";
 const UNKNOWN_LOCATION_ICON_URL = "/img/unknown-location.png";
 
 async function onGeoOk(position) {
