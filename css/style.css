@@ -55,6 +55,20 @@ body * {
   margin-right: 0.3em;
 }
 
+#todo-toggle {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+#todo-toggle:hover {
+  animation: pulse 1s infinite;
+}
+
 #clock {
   margin: 20px;
   font-family: "clock-font";
@@ -109,6 +123,19 @@ body * {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* 애니메이션 키프레임 정의 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
