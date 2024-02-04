@@ -192,12 +192,23 @@ body * {
   background-color: transparent;
   border: 0;
   font-size: 20px;
+  transition: transform 0.3s ease;
 }
 
-p,
-a {
+#music-toggle-button:hover {
+  transform: scale(1.2);
+}
+
+#copyright-icon {
   position: absolute;
-  bottom: 20px;
+  bottom: 48px;
+  right: 40px;
+  font-size: 14px;
+}
+
+#copyright-music {
+  position: absolute;
+  bottom: 30px;
   right: 40px;
   font-size: 14px;
 }
