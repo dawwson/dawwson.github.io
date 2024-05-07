@@ -1,7 +1,7 @@
 <h1 align="center">Momentum Clone App</h1>
 
 <p align="center">
-  <img width="100%" height="300" alt="스크린샷 2024-05-07 오후 4 02 48" src="https://github.com/dawwson/dawwson.github.io/assets/45624238/86274174-36b7-480f-af2f-701b51ac06df">
+  <img width="100%" alt="스크린샷 2024-05-07 오후 4 02 48" src="https://github.com/dawwson/dawwson.github.io/assets/45624238/86274174-36b7-480f-af2f-701b51ac06df">
 
 </p>
 
@@ -39,7 +39,10 @@
 
 <h2 align="center">Deployment</h2>
 <p align="center">
-  <a href="">여기로 이동하세요! 👋</a>
+  테스트는 <a href="https://dawwson.github.io/">여기</a>로 이동하세요! 👋
+  <br>
+  <br>
+  <a href="https://nomadcoders.co/community/thread/9276">노마드 코더 바닐라JS 챌린지 46기</a> 우수 졸업작품으로 선정되었습니다! ☺️
 </p>
 
 <br>
