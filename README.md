@@ -1,7 +1,8 @@
 <h1 align="center">Momentum Clone App</h1>
 
 <p align="center">
-  <img src="" width="100%" height="300" />
+  <img width="100%" height="300" alt="스크린샷 2024-05-07 오후 4 02 48" src="https://github.com/dawwson/dawwson.github.io/assets/45624238/86274174-36b7-480f-af2f-701b51ac06df">
+
 </p>
 
 <h2 align="center">Introduction</h2>
@@ -11,7 +12,7 @@
 
 <br>
 
-<p style="color: gray;">
+<p align="center" style="color: gray;">
   (* 크롬 확장 프로그램 중 하나인 Momentum이라는 앱을 클론하는 프로젝트입니다.)
 </p>
 
@@ -29,7 +30,7 @@
 <p align="center">
   +
   <br>
-  OpenWeatherMap Weather API
+  <a href="https://openweathermap.org/">OpenWeatherMap</a> Weather API
 
 </p>
 
@@ -39,5 +40,8 @@
 <h2 align="center">Deployment</h2>
 <p align="center">
   <a href="">여기로 이동하세요! 👋</a>
-
 </p>
+
+<br>
+<br>
+<br>
